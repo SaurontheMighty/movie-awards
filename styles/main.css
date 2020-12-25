@@ -1,0 +1,33 @@
+/* Typefaces */
+@font-face {
+    font-family: Oswald;
+    src: url('../typefaces/Oswald.ttf');
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('../typefaces/Roboto-Regular.ttf');
+}
+
+/* Header */
+.page-header{
+    text-align: center;
+    padding: 2px;
+    font-family:'Roboto';
+    border-bottom: 1px solid #e2e0e0;
+    background: #ffff;
+}
+
+/* Body */
+body{
+    margin: 0px;
+    background-color: #FFFAEE;
+}
+
+/* Footer */
+footer {
+    padding: 1px;
+    background-color: white;
+    text-align: center;
+    font-family:'Roboto';
+}
