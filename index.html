@@ -14,21 +14,27 @@
     <main>
         <!-- Left Column -->
         <section class="left">
-            <section>
+            <section class="card">
                 <!-- Nominations -->
+                <h3 class="title">My Nominations:</h3>
             </section>
-            <section>
-                <!-- Nominations -->
+            <section class="present card">
+                <!-- Presented By -->
+                <p style="margin-right: 10px;">Presented by Shopify</p>
+                <img src="assets/shopify_logo.png" height="50px" alt="Shopify Logo">
             </section>
         </section>
 
         <!-- Right Column -->
         <section class="right">
-            <section>
+            <section class="card">
                 <!-- Search Bar -->
-            </section>
-            <section>
+                <input onkeydown="if (event.keyCode == 13) { getMovie(); return false; }" type="text" class="search-card" placeholder="Find a Movie to Nominate" id="searchMovies"><button alt="Search Movies" class="search-button" onclick="getMovie()">&#x1F50D;</button>
+            <section id="results">
                 <!-- Results -->
+                <article id="toHide" class="card">
+                    <p>Find a Movie by Searching above!</p>
+                </article>
             </section>
         </section>
     </main>

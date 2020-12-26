@@ -13,7 +13,7 @@
 .page-header{
     text-align: center;
     padding: 2px;
-    font-family:'Roboto';
+    font-family:'Oswald';
     border-bottom: 1px solid #e2e0e0;
     background: #ffff;
 }
@@ -22,6 +22,93 @@
 body{
     margin: 0px;
     background-color: #FFFAEE;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content:space-evenly;
+    padding: 5px;
+    flex-direction: row;
+    flex-flow: row wrap
+}
+
+.card {
+    border: 1px solid #e2e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #ffff;
+    margin-bottom: 10px;
+}
+
+/* Left Column: Nominations and Presented By */
+.left{
+    margin-left: 5px;
+    margin-right: 10px;
+    flex: 1;
+}
+
+.present {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}
+
+p{
+    font-family: 'Roboto';
+}
+
+.p2{
+    font-size: smaller;
+    font-family: 'Roboto';
+}
+
+/* Right Column: Search Movies */
+.right{
+    margin-right: 15px;
+    flex: 3 1 auto;
+}
+
+.title {
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Roboto';
+}
+
+.search-card{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    border-radius: 50px;
+    width: 91%;
+    color: #000000;
+    background: #f6f7f8;
+}
+
+.search-button{
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 50px;
+    color: #000000;
+    background: #f6f7f8;
+}
+
+.hidden{
+    display: none;
+}
+
+/* The Movie Card */
+.poster{
+    height: 150px;
+}
+
+.movieResult{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 /* Footer */
