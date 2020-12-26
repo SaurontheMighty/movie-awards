@@ -96,8 +96,8 @@ p{
     background: #f6f7f8;
 }
 
-.hidden{
-    display: none;
+.hidden {
+    display: none !important;
 }
 
 /* The Movie Card */
