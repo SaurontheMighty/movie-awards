@@ -9,12 +9,50 @@
     src: url('../typefaces/Roboto-Regular.ttf');
 }
 
+/* Welcome Popup */
+#overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+#welcome {
+    background-color: white;
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    right: 35%;
+    bottom: 35%;
+    text-align: center;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+@media (max-width:1000px){
+    #welcome{
+        top: 35%;
+        left: 20%;
+        right: 20%;
+        bottom: 35%;
+    }
+}
+
 /* Header */
 .page-header{
     text-align: center;
     padding: 2px;
     font-family:'Oswald';
     border-bottom: 1px solid #e2e0e0;
+    background: #ffff;
+}
+
+.welcome-header{
+    text-align: center;
+    font-family:'Oswald';
     background: #ffff;
 }
 
@@ -58,9 +96,36 @@ p{
     font-family: 'Roboto';
 }
 
-.p2{
+.w-text{
+    padding-top: 10px;
+    padding-left:50px;
+    padding-right:50px;
+}
+
+/* Small Text */
+.p2{ 
     font-size: smaller;
     font-family: 'Roboto';
+}
+
+/* Font for Titles */
+.np{
+    flex: 1;
+    font-size:20px;
+    font-family: 'Roboto';
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.x{
+    cursor: pointer;
+    text-align: right;
+    margin-right: 20px;
+    opacity: 0.8;
 }
 
 /* Right Column: Search Movies */
@@ -98,6 +163,10 @@ p{
 
 .hidden {
     display: none !important;
+}
+
+.toHide {
+    margin-bottom: 56vh;
 }
 
 /* The Movie Card */

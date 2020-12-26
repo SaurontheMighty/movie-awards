@@ -1,3 +1,22 @@
+//On load show welcome screen
+window.onload = welcome;
+
+function welcome(){
+    overlay = document.getElementById("overlay");
+    overlay.classList.remove("hidden");
+    popup = document.getElementById("welcome");
+    popup.classList.remove("hidden");
+}
+
+//Close welcome screen
+function closePopup(){
+    console.log("clicked");
+    overlay = document.getElementById("overlay");
+    overlay.classList.add("hidden");
+    popup = document.getElementById("welcome");
+    popup.classList.add("hidden");
+}
+
 function getMovie(){ //Gets all the movies containing the string from OMDb
     var currentResult = document.querySelectorAll('.movieResult');
     console.log(currentResult);

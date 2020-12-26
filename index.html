@@ -11,6 +11,18 @@
     <header class="page-header">
         <h1>🏆 The 1st Annual Shoppie Awards 🏆</h1>
     </header>
+
+    <!-- Welcome -->
+    <section id="overlay" class="hidden"></section>
+    <section id="welcome" class="hidden">
+        <div class="row">
+            <h2 class="np">Welcome to the</h2>
+            <p onclick="closePopup()" class="x">&#10005;</p>
+        </div>
+        <h2 class="welcome-header">🏆 1st Shoppie Awards 🏆</h2>
+        <p class="w-text">Nominate up to 5 winners who you think deserve this prestigious award!</p>
+    </section>
+
     <main>
         <!-- Left Column -->
         <section class="left">
@@ -32,7 +44,7 @@
                 <input onkeydown="if (event.keyCode == 13) { getMovie(); return false; }" type="text" class="search-card" placeholder="Find a Movie to Nominate" id="searchMovies"><button alt="Search Movies" class="search-button" onclick="getMovie()">&#x1F50D;</button>
             <section id="results">
                 <!-- Results -->
-                <article id="toHide" class="movieResult card">
+                <article id="toHide" class="movieResult card toHide">
                     <p>Find a movie to nominate by searching above!</p>
                 </article>
             </section>
