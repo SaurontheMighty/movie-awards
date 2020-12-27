@@ -25,7 +25,7 @@
     z-index: 1;
 }
 
-#welcome {
+.welcome {
     background-color: white;
     position: fixed;
     top: 35%;
@@ -157,6 +157,7 @@ p{
 }
 
 .search-card{
+    /* height: 2.5vh; */
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 15px;

@@ -12,14 +12,24 @@ function welcome(){
 }
 
 //Close welcome screen
-function closePopup(){
+function closePopup(str){
 
     //Remove the dark overlay and hide the Welcome Popup
     overlay = document.getElementById("overlay");
     overlay.classList.add("hidden");
 
-    popup = document.getElementById("welcome");
+    popup = document.getElementById(`${str}`);
     popup.classList.add("hidden");
+}
+
+// Information Window (reusing code from welcome message)
+function infoAlert(str){
+    overlay = document.getElementById("overlay");
+    overlay.classList.remove("hidden");
+
+    popup = document.getElementById("infoAlert");
+    document.getElementById("info").textContent = str;
+    popup.classList.remove("hidden");
 }
 
 function getMovie(){ //Gets all the movies containing the string from OMDb
@@ -85,7 +95,7 @@ function getMovie(){ //Gets all the movies containing the string from OMDb
             nominator2.classList.add("hidden");
             nominator2.textContent = "\u2605 Nominated!";
             nominator2.setAttribute("id",`nominated${element.Title}`);
-            nominator2.setAttribute("onclick",`nominator("${element.Title}")`);
+            nominator2.setAttribute("onclick",`unnominator("${element.Title}")`);
             details.appendChild(nominator2);
             result.appendChild(details);
 
@@ -108,5 +118,49 @@ function nominator(str){
     nominate = document.getElementById(`nominate${str}`);
     nominate.classList.add("hidden");
     nominated = document.getElementById(`nominated${str}`);
-    nominated.classList.remove("hidden");s
+    nominated.classList.remove("hidden");
+    AddToList(str);
+}
+
+function AddToList(str){
+    var i=1
+    while(i!=6){
+        element = document.getElementById(`n${i}`);
+        if(element.textContent == "Nomination"){
+            element.textContent = `${i}. ${str}`;
+            if(i==5){
+                infoAlert("Five Movies have been successfully nominated! Thank you for your time! To nominate a new movie, remove one of your earlier nominations.");
+            }
+            i=6
+        }
+        else{
+            if(i==5){
+                infoAlert("To nominate a new movie, remove one of your earlier nominations.");
+            }
+            i+=1;
+        }
+    }
+}
+
+function RemoveFromList(str){
+    var i=1
+    while(i!=6){
+        element = document.getElementById(`n${i}`);
+        console.log(element.textContent);
+        if(element.textContent.includes(str)){
+            element.textContent = `Nomination`;
+            i=6
+        }
+        else{
+            i+=1;
+        }
+    }
+}
+
+function unnominator(str){
+    nominate = document.getElementById(`nominate${str}`);
+    nominate.classList.remove("hidden");
+    nominated = document.getElementById(`nominated${str}`);
+    nominated.classList.add("hidden");
+    RemoveFromList(str);
 }

@@ -18,13 +18,18 @@
 
     <!-- Welcome -->
     <section id="overlay" class="hidden"></section>
-    <section id="welcome" class="hidden">
+    <section id="welcome" class="welcome hidden">
         <div class="row">
             <h2 class="np">Welcome to the</h2>
-            <p onclick="closePopup()" class="x">&#10005;</p>
+            <p onclick="closePopup('welcome')" class="x">&#10005;</p>
         </div>
         <h2 class="welcome-header">🏆 1st Shoppie Awards 🏆</h2>
         <p class="w-text">Nominate up to 5 winners who you think deserve this prestigious award!</p>
+    </section>
+    <section id="infoAlert" class="welcome hidden">
+        <p onclick="closePopup('infoAlert')" class="x">&#10005;</p>
+        <br>
+        <p id="info" class="w-text"></p>
     </section>
 
     <main>
@@ -33,11 +38,11 @@
             <section class="card">
                 <!-- Nominations -->
                 <h3 class="title">My Nominations:</h3>
-                <div class="nomination">Nomination</div>
-                <div class="nomination">Nomination</div>
-                <div class="nomination">Nomination</div>
-                <div class="nomination">Nomination</div>
-                <div class="nomination">Nomination</div>
+                <div id="n1" class="nomination">Nomination</div>
+                <div id="n2" class="nomination">Nomination</div>
+                <div id="n3" class="nomination">Nomination</div>
+                <div id="n4" class="nomination">Nomination</div>
+                <div id="n5" class="nomination">Nomination</div>
             </section>
             <section class="present card">
                 <!-- Presented By -->
