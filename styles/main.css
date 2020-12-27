@@ -9,6 +9,11 @@
     src: url('../typefaces/Roboto-Regular.ttf');
 }
 
+@font-face {
+    font-family: Montserrat;
+    src: url('../typefaces/Montserrat-Regular.ttf');
+}
+
 /* Welcome Popup */
 #overlay {
     background: rgba(0, 0, 0, 0.5);
@@ -32,6 +37,27 @@
     z-index: 2;
 }
 
+/* Font for Titles */
+.np{
+    flex: 1;
+    font-size:20px;
+    font-family: 'Roboto';
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.x{
+    cursor: pointer;
+    text-align: right;
+    margin-right: 20px;
+    opacity: 0.8;
+}
+
+/* Adjust Popup Width for Different Screen Sizes */
 @media (max-width:1000px){
     #welcome{
         top: 35%;
@@ -86,6 +112,16 @@ main {
     flex: 1;
 }
 
+.nomination {
+    font-family: "Montserrat";
+    border: 1px solid gold;
+    margin-bottom: 10px;
+    background-color: #FFEDD8;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
 .present {
     display: flex;
     flex-direction: row;
@@ -106,26 +142,6 @@ p{
 .p2{ 
     font-size: smaller;
     font-family: 'Roboto';
-}
-
-/* Font for Titles */
-.np{
-    flex: 1;
-    font-size:20px;
-    font-family: 'Roboto';
-}
-
-.row{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.x{
-    cursor: pointer;
-    text-align: right;
-    margin-right: 20px;
-    opacity: 0.8;
 }
 
 /* Right Column: Search Movies */
@@ -166,7 +182,13 @@ p{
 }
 
 .toHide {
-    margin-bottom: 56vh;
+    height: 64vh;
+    text-align: center;
+}
+
+.giantTrophy{
+    font-size: 10vh;
+    opacity: 0.6;
 }
 
 /* The Movie Card */
@@ -175,9 +197,24 @@ p{
 }
 
 .movieResult{
+    background-color: #fdfaf2;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.nominate {
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+    color: #4e4e4e;
+    border: 1px solid black;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    width: fit-content;
 }
 
 /* Footer */

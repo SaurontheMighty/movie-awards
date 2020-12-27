@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoppie Awards</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
     <link rel="stylesheet" href="styles/main.css">
     <script src="scripts/main.js"></script>
 </head>
@@ -29,6 +33,11 @@
             <section class="card">
                 <!-- Nominations -->
                 <h3 class="title">My Nominations:</h3>
+                <div class="nomination">Nomination</div>
+                <div class="nomination">Nomination</div>
+                <div class="nomination">Nomination</div>
+                <div class="nomination">Nomination</div>
+                <div class="nomination">Nomination</div>
             </section>
             <section class="present card">
                 <!-- Presented By -->
@@ -44,7 +53,8 @@
                 <input onkeydown="if (event.keyCode == 13) { getMovie(); return false; }" type="text" class="search-card" placeholder="Find a Movie to Nominate" id="searchMovies"><button alt="Search Movies" class="search-button" onclick="getMovie()">&#x1F50D;</button>
             <section id="results">
                 <!-- Results -->
-                <article id="toHide" class="movieResult card toHide">
+                <article id="toHide" class="card toHide">
+                    <p class="giantTrophy">🏆</p>
                     <p>Find a movie to nominate by searching above!</p>
                 </article>
             </section>
