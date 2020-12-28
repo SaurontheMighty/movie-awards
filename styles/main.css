@@ -28,10 +28,9 @@
 .welcome {
     background-color: white;
     position: fixed;
-    top: 35%;
-    left: 35%;
-    right: 35%;
-    bottom: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     border-radius: 20px;
     z-index: 2;
@@ -55,16 +54,6 @@
     text-align: right;
     margin-right: 20px;
     opacity: 0.8;
-}
-
-/* Adjust Popup Width for Different Screen Sizes */
-@media (max-width:1000px){
-    #welcome{
-        top: 35%;
-        left: 20%;
-        right: 20%;
-        bottom: 35%;
-    }
 }
 
 /* Header */
@@ -97,6 +86,13 @@ main {
     flex-flow: row wrap
 }
 
+/* Adjust Popup Width for Different Screen Sizes */
+@media (max-width: 550px){
+    main{
+        flex-direction: column;
+    }
+}
+
 .card {
     border: 1px solid #e2e0e0;
     border-radius: 10px;
@@ -113,13 +109,13 @@ main {
 }
 
 .nomination {
-    font-family: "Montserrat";
     border: 1px solid gold;
     margin-bottom: 10px;
     background-color: #FFEDD8;
     border-radius: 5px;
     padding: 5px;
     text-align: center;
+    font-family: "Montserrat";
 }
 
 .present {
@@ -138,6 +134,13 @@ p{
     padding-right:50px;
 }
 
+.remove{
+    cursor: pointer;
+    opacity: 0.5;
+    margin-right: 9px;
+    float: right;
+}
+
 /* Small Text */
 .p2{ 
     font-size: smaller;
@@ -147,7 +150,7 @@ p{
 /* Right Column: Search Movies */
 .right{
     margin-right: 15px;
-    flex: 3 1 auto;
+    flex: 4;
 }
 
 .title {

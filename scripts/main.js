@@ -71,42 +71,44 @@ function getMovie(){ //Gets all the movies containing the string from OMDb
 
         data.Search.forEach(element => {
             console.log(element);
-            result = document.createElement('article');
-            result.className = "movieResult card";
-            details = document.createElement('section');
-            title = document.createElement('p');
-            title.textContent = element.Title;
-            date = document.createElement('p');
-            date.textContent = `(${element.Year})`;
-            details.appendChild(title);
-            details.appendChild(date);
-            details.appendChild(document.createElement("br"));
-            details.appendChild(document.createElement("br"));
+            if(element.Type=="movie"){ // Move Awards so only movies
+                result = document.createElement('article');
+                result.className = "movieResult card";
+                details = document.createElement('section');
+                title = document.createElement('p');
+                title.textContent = element.Title;
+                date = document.createElement('p');
+                date.textContent = `(${element.Year})`;
+                details.appendChild(title);
+                details.appendChild(date);
+                details.appendChild(document.createElement("br"));
+                details.appendChild(document.createElement("br"));
 
-            nominator1 = document.createElement("div");
-            nominator1.classList.add("nominate");
-            nominator1.textContent = "\u2606 Nominate";
-            nominator1.setAttribute("id",`nominate${element.Title}`);
-            nominator1.setAttribute("onclick",`nominator("${element.Title}")`);
-            details.appendChild(nominator1);
+                nominator1 = document.createElement("div");
+                nominator1.classList.add("nominate");
+                nominator1.textContent = "\u2606 Nominate";
+                nominator1.setAttribute("id",`nominate${element.Title}`);
+                nominator1.setAttribute("onclick",`nominator("${element.Title}")`);
+                details.appendChild(nominator1);
 
-            nominator2 = document.createElement("div");
-            nominator2.classList.add("nominate");
-            nominator2.classList.add("hidden");
-            nominator2.textContent = "\u2605 Nominated!";
-            nominator2.setAttribute("id",`nominated${element.Title}`);
-            nominator2.setAttribute("onclick",`unnominator("${element.Title}")`);
-            details.appendChild(nominator2);
-            result.appendChild(details);
+                nominator2 = document.createElement("div");
+                nominator2.classList.add("nominate");
+                nominator2.classList.add("hidden");
+                nominator2.textContent = "\u2605 Nominated!";
+                nominator2.setAttribute("id",`nominated${element.Title}`);
+                nominator2.setAttribute("onclick",`unnominator("${element.Title}")`);
+                details.appendChild(nominator2);
+                result.appendChild(details);
 
-            image = document.createElement('img');
-            image.className = "poster";
+                image = document.createElement('img');
+                image.className = "poster";
 
-            if(element.Poster!="N/A"){
-                image.src=element.Poster;
+                if(element.Poster!="N/A"){
+                    image.src=element.Poster;
+                }
+                result.appendChild(image);
+                element1.appendChild(result);
             }
-            result.appendChild(image);
-            element1.appendChild(result);
         });
     })
     .catch((error)=>{
@@ -114,20 +116,19 @@ function getMovie(){ //Gets all the movies containing the string from OMDb
     });
 }
 
-function nominator(str){
-    nominate = document.getElementById(`nominate${str}`);
-    nominate.classList.add("hidden");
-    nominated = document.getElementById(`nominated${str}`);
-    nominated.classList.remove("hidden");
-    AddToList(str);
-}
-
-function AddToList(str){
+function nominator(str){ //adds to nomination list and makes the nominated! button visible
     var i=1
     while(i!=6){
         element = document.getElementById(`n${i}`);
         if(element.textContent == "Nomination"){
             element.textContent = `${i}. ${str}`;
+
+            //Nomination Button
+            nominate = document.getElementById(`nominate${str}`);
+            nominate.classList.add("hidden");
+            nominated = document.getElementById(`nominated${str}`);
+            nominated.classList.remove("hidden");
+            
             if(i==5){
                 infoAlert("Five Movies have been successfully nominated! Thank you for your time! To nominate a new movie, remove one of your earlier nominations.");
             }
@@ -142,10 +143,14 @@ function AddToList(str){
     }
 }
 
-function RemoveFromList(str){
+function unnominator(str){ //un-nominate based on the string
     var i=1
     while(i!=6){
         element = document.getElementById(`n${i}`);
+        nominate = document.getElementById(`nominate${str}`);
+        nominate.classList.remove("hidden");
+        nominated = document.getElementById(`nominated${str}`);
+        nominated.classList.add("hidden");
         console.log(element.textContent);
         if(element.textContent.includes(str)){
             element.textContent = `Nomination`;
@@ -157,10 +162,14 @@ function RemoveFromList(str){
     }
 }
 
-function unnominator(str){
-    nominate = document.getElementById(`nominate${str}`);
-    nominate.classList.remove("hidden");
-    nominated = document.getElementById(`nominated${str}`);
-    nominated.classList.add("hidden");
-    RemoveFromList(str);
+function unnominator2(n){ //un-nominate based on position in the un-nomination list
+    element = document.getElementById(`n${n}`);
+    if(element.textContent!="Nomination"){
+        console.log(element.textContent.substring(3));
+        nominate = document.getElementById(`nominate${element.textContent.substring(3)}`);
+        nominate.classList.remove("hidden");
+        nominated = document.getElementById(`nominated${element.textContent.substring(3)}`);
+        nominated.classList.add("hidden");
+        element.textContent = 'Nomination';
+    }
 }
