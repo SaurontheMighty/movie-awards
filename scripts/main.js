@@ -1,18 +1,68 @@
 //On load show welcome screen
 window.onload = welcome;
-var played = false;
-var cookieEnabled = false;
+
+//When they're about to leave, save choices as cookies if enabled
+window.onbeforeunload = saveCookies;
+
+var played = false; // Animation played
+
+//Cookie Enabled has a default true because:
+//Case 1: New User: In this case this value will be changed soon
+//Case 2: Returning user: In this case the user would be restoring previous session data so this value will have to have been true.
+var cookieEnabled = true;
+
 var nominationList = [];
 
 function welcome(){
     var title = document.getElementById("page-header");
     title.addEventListener("animationend", aniEnd, false);
+
+    if(getCookie("1")!=null){
+        // Restore a User's previous session:
+        played=true;
+
+        pholder = document.getElementById("placeholder");
+        pholder.classList.add("hidden");
+
+        document.getElementById("page-header").style.animation = "move-up-more 2s forwards";
+        document.getElementById("welcome-details").classList.add("hidden");
+
+        // Show Cool Headline
+        var headline = document.getElementById("page-heading");
+        headline.style.textShadow = "#f5f5f5 1px 0 7px";
+        headline.textContent = "🏆 The 1st Annual Shoppie Awards 🏆";
+
+        // Hide the welcome messages
+        document.getElementById("welcome-details").classList.add("hidden");
+
+        // Show Main Content
+        main = document.getElementById("main");
+        main.classList.remove("hidden");
+        main.style.animation = "fadein 3s forwards";
+
+        // Show Footer
+        document.getElementById("footer").classList.remove("hidden");
+        
+        for(var i=1; i<=getCookie("1");i++){
+
+            //Update Nomination List
+            var nomination = getCookie(` ${i+1}`);
+            nominationList.push(nomination);
+
+            //Update panels
+            element = document.getElementById(`n${i}`);
+            document.getElementById(`n${i}p`).classList.remove("hidden");
+            console.log(`${i}. ${nomination}`);
+            element.textContent = `${i}. ${nomination}`;
+        }
+    }
 }
 
-function aniEnd(event){
-    console.log('hello');
+function aniEnd(event){ //When the animation is over
+
     if(played==false){
         document.getElementById("welcome-details").classList.remove("hidden");
+        document.getElementById("welcome-details").style.animation = "fadein 1s forwards";
     }
     else{
         // document.getElementById("page-header").style.borderBottom = "1px solid #ededed";
@@ -23,6 +73,7 @@ function aniEnd(event){
         main.classList.remove("hidden");
         main.style.animation = "fadein 3s forwards";
         document.getElementById("footer").classList.remove("hidden");
+
     }
 }
 
@@ -30,7 +81,6 @@ function gotIt(){
     document.getElementById("page-header").style.animation = "move-up-more 2s forwards";
     document.getElementById("welcome-details").classList.add("hidden");
     played = true;
-    console.log(document.getElementById("cookieCheck").checked);
     cookieEnabled = document.getElementById("cookieCheck").checked; 
 }
 
@@ -60,8 +110,9 @@ function getCookie(cookiename) {
         var element = cookies[i].split("=");
         var name = element[0];
         var value = element[1];
+        console.log(element);
         if(name == cookiename){
-        return value;
+            return value;
         }
     }
     return null;
@@ -150,9 +201,16 @@ function getMovie(){ //Gets all the movies containing the string from OMDb
                 details.appendChild(document.createElement("br"));
                 details.appendChild(document.createElement("br"));
 
+                var inList = nominationList.includes(element.Title);
+
                 //The Nominate button
                 nominator1 = document.createElement("div");
                 nominator1.classList.add("nominate");
+
+                if(inList){
+                    nominator1.classList.add("hidden");
+                }
+
                 nominator1.textContent = "\u2606 Nominate";
                 nominator1.setAttribute("id",`nominate${element.Title}`);
                 nominator1.setAttribute("onclick",`nominator("${element.Title}")`);
@@ -161,7 +219,11 @@ function getMovie(){ //Gets all the movies containing the string from OMDb
                 //The Nominated! button
                 nominator2 = document.createElement("div");
                 nominator2.classList.add("nominate");
-                nominator2.classList.add("hidden");
+                
+                if(inList==false){
+                    nominator2.classList.add("hidden");
+                }
+
                 nominator2.textContent = "\u2605 Nominated!";
                 nominator2.setAttribute("id",`nominated${element.Title}`);
                 nominator2.setAttribute("onclick",`unnominator("${element.Title}")`);
@@ -197,7 +259,7 @@ function nominator(str){ //adds to nomination list and makes the nominated! butt
         if(element.textContent == "Nomination"){
             element.textContent = `${i}. ${str}`;
 
-            if(i==1){
+            if(i==1){ //The find movies box
                 pholder = document.getElementById("placeholder");
                 pholder.classList.add("hidden");
             }
@@ -239,6 +301,7 @@ function unnominator(str){ //un-nominate based on the string
 
         //Since the content will be somthing like "1. Star Wars..." we need to use include, = won't work since the result will have a number in front.
         if(element.textContent.includes(str)){
+            nominationList.splice(i-1,1);
             element.textContent = `Nomination`;
             document.getElementById(`n${i}p`).classList.add("hidden");
             i=6
@@ -247,11 +310,14 @@ function unnominator(str){ //un-nominate based on the string
             i+=1;
         }
     }
+    reorder();
 }
 
 function unnominator2(n){ //un-nominate based on position in the un-nomination list
     element = document.getElementById(`n${n}`);
     
+    nominationList.splice(n-1,1);
+
     //If element's textContent is nomination then don't do anything because there is nothing to remove.
     if(element.textContent!="Nomination"){
         console.log(element.textContent.substring(3));
@@ -261,5 +327,40 @@ function unnominator2(n){ //un-nominate based on position in the un-nomination l
         nominated.classList.add("hidden");
         element.textContent = 'Nomination';
         document.getElementById(`n${n}p`).classList.add("hidden");
+    }
+
+    reorder();
+}
+
+function reorder(){
+    console.log("Reorder");
+    console.log(nominationList);
+    j=1;
+    for(var i=0; i<5;i++){
+        if(i<=nominationList.length-1){
+            element = document.getElementById(`n${i+1}`);
+            document.getElementById(`n${i+1}p`).classList.remove("hidden");
+            console.log(`${j}. ${nominationList[i]}`);
+            element.textContent = `${j}. ${nominationList[i]}`;
+            console.log(element);
+            console.log(element.textContent);
+            j=j+1;
+        }
+        else{
+            document.getElementById(`n${i+1}`).textContent ="Nomination";
+            document.getElementById(`n${i+1}p`).classList.add("hidden");
+        }
+    }
+
+}
+
+//Save Cookies!
+function saveCookies(){
+    if(cookieEnabled){
+        createCookie(1,nominationList.length,30); //The first cookie is the number of following cookies.
+        for(var i=0; i<nominationList.length;i++){
+            var j=i+2;
+            createCookie(`${j}`,nominationList[i],30);
+        }
     }
 }
