@@ -12,56 +12,56 @@
     <script src="scripts/main.js"></script>
 </head>
 <body>
-    <header class="page-header">
-        <h1>🏆 The 1st Annual Shoppie Awards 🏆</h1>
+    <header id="page-header" class="page-header">
+        <h1 id="page-heading" class="page-heading">The 1st Annual Shoppie Awards</h1>
+        <section id="welcome-details" class="hidden">
+            <p class="centered-text">Nominate up to 5 movies to recieve this prestigious award!</p>
+            <span class="smaller-text">Enable Cookies to save your nominations for 30 days</span>
+            <input id="cookieCheck" type="checkbox" checked>
+            <p></p>
+            <button class="got-it" onclick="gotIt()">Got it!</button>
+        </section>
     </header>
 
     <!-- Welcome -->
     <section id="overlay" class="hidden"></section>
-    <section id="welcome" class="welcome hidden">
-        <div class="row">
-            <h2 class="np">Welcome to the</h2>
-            <p onclick="closePopup('welcome')" class="x">&#10005;</p>
-        </div>
-        <h2 class="welcome-header">🏆 1st Shoppie Awards 🏆</h2>
-        <p class="w-text">Nominate up to 5 winners who you think deserve this prestigious award!</p>
-    </section>
     <section id="infoAlert" class="welcome hidden">
         <p id="info" class="w-text"></p>
         <span onclick="closePopup('infoAlert')" class="x">&#10005;</span>
         <p></p>
     </section>
 
-    <main>
+    <main id="main" class="hidden">
         <!-- Left Column -->
         <section class="left">
             <section class="card">
                 <!-- Nominations -->
                 <h3 class="title">My Nominations:</h3>
-                <p class="nomination">
+                <p class="nomination_placeholder" id="placeholder">Your nominations will appear here</p>
+                <p class="nomination hidden" id="n1p">
                     <span id="n1">Nomination</span>
                     <span class="remove" onclick="unnominator2('1')">&#10005;</span>
                 </p>
-                <p class="nomination">
+                <p class="nomination hidden" id="n2p">
                     <span id="n2">Nomination</span>
                     <span class="remove" onclick="unnominator2('2')">&#10005;</span>
                 </p>
-                <p class="nomination">
+                <p class="nomination hidden" id="n3p">
                     <span id="n3">Nomination</span>
                     <span class="remove" onclick="unnominator2('3')">&#10005;</span>
                 </p>
-                <p class="nomination">
+                <p class="nomination hidden" id="n4p">
                     <span id="n4">Nomination</span>
                     <span class="remove" onclick="unnominator2('4')">&#10005;</span>
                 </p>
-                <p class="nomination">
+                <p class="nomination hidden" id="n5p">
                     <span id="n5">Nomination</span>
                     <span class="remove" onclick="unnominator2('5')">&#10005;</span>
                 </p>
             </section>
-            <section class="present card">
+            <section class="present">
                 <!-- Presented By -->
-                <p style="margin-right: 10px;">Presented by Shopify</p>
+                <p class="shopify-text">Presented by Shopify</p>
                 <img src="assets/shopify_logo.png" height="50px" alt="Shopify Logo">
             </section>
         </section>
@@ -80,7 +80,7 @@
             </section>
         </section>
     </main>
-    <footer>
+    <footer id="footer" class="hidden">
         <p>Built by Ashish for the Shopify UX & Web Developer Challenge. <a href="https://sauronthemighty.github.io/">Resume</a></p>
     </footer>
 </body>

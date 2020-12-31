@@ -57,24 +57,80 @@
 }
 
 /* Header */
-.page-header{
+#page-header{
+    margin-top: 22%;
     text-align: center;
-    padding: 2px;
-    font-family:'Oswald';
-    border-bottom: 1px solid #e2e0e0;
-    background: #ffff;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    animation-name: move-up;
 }
 
-.welcome-header{
+.page-heading{
+    font-family: sans-serif;
+    font-size: 200%;
+    color: white;
+}
+
+@keyframes move-up {
+    from {
+        margin-top: 22%;
+    }
+
+    to {
+        margin-top: 15%;
+    }
+}
+
+@keyframes move-up-more {
+    from {
+        margin-top: 15%;
+    }
+
+    to {
+        margin-top: 2%;
+    }
+}
+
+.centered-text{
     text-align: center;
-    font-family:'Oswald';
-    background: #ffff;
+    font-family: sans-serif;
+    color: white;
+}
+
+.smaller-text{
+    margin-right: 3px;
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+    font-size: 14px;
+}
+
+.got-it{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    font-size: 12px;
+    background-color: white;
+    text-align: center;
+    border-radius: 20px;
+}
+
+@keyframes fadein {
+    from { 
+        opacity: 0; 
+    }
+    to   { 
+        opacity: 1; 
+    }
 }
 
 /* Body */
 body{
     margin: 0px;
-    background-color: #FFFAEE;
+    background-color: black;
 }
 
 main {
@@ -112,8 +168,18 @@ main {
     border: 1px solid gold;
     margin-bottom: 10px;
     background-color: #FFEDD8;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 5px;
+    text-align: center;
+    font-family: "Montserrat";
+}
+
+.nomination_placeholder {
+    border: 1px solid gold;
+    margin-bottom: 10px;
+    background-color: #FFEDD8;
+    border-radius: 5px;
+    padding: 10px;
     text-align: center;
     font-family: "Montserrat";
 }
@@ -122,6 +188,11 @@ main {
     display: flex;
     flex-direction: row;
     justify-content:center;
+    border: 1px solid #e2e0e0;
+    border-radius: 10px;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
 }
 
 p{
@@ -132,6 +203,14 @@ p{
     padding-top: 10px;
     padding-left:50px;
     padding-right:50px;
+}
+
+.shopify-text{
+    color: #004c3f;
+    margin-right: 3vh;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .remove{
