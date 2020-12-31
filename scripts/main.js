@@ -17,7 +17,9 @@ function welcome(){
     var title = document.getElementById("page-header");
     title.addEventListener("animationend", aniEnd, false);
 
-    if(getCookie("1")!=null){
+    console.log(getCookie(1));
+    if(getCookie(1)!=null){
+        console.log("Restoring session");
         // Restore a User's previous session:
         played=true;
 
@@ -42,8 +44,9 @@ function welcome(){
 
         // Show Footer
         document.getElementById("footer").classList.remove("hidden");
+        console.log(document.cookie);
         
-        for(var i=1; i<=getCookie("1");i++){
+        for(var i=1; i<=getCookie(1);i++){
 
             //Update Nomination List
             var nomination = getCookie(` ${i+1}`);
@@ -160,7 +163,7 @@ function getMovie(){ //Gets all the movies containing the string from OMDb
     var element1 = document.getElementById('results');
 
     //Fetch from OMDb API
-    fetch(`http://www.omdbapi.com/?s=${name}&apikey=b2051952`)
+    fetch(`https://www.omdbapi.com/?s=${name}&apikey=b2051952`)
     .then((response)=>{
         return response.json(); //Convert the response to JSON
     })
@@ -251,38 +254,41 @@ function getMovie(){ //Gets all the movies containing the string from OMDb
 function nominator(str){ //adds to nomination list and makes the nominated! button visible
     var i=1
 
-    nominationList.push(str);
-    console.log(nominationList);
+    if(nominationList.length==5){
+        infoAlert("To nominate a new movie, remove one of your earlier nominations.");
+    }
+    else{
+        nominationList.push(str);
+        console.log(nominationList);
 
-    while(i!=6){
-        element = document.getElementById(`n${i}`);
-        if(element.textContent == "Nomination"){
-            element.textContent = `${i}. ${str}`;
 
-            if(i==1){ //The find movies box
-                pholder = document.getElementById("placeholder");
-                pholder.classList.add("hidden");
+        while(i!=6){
+            element = document.getElementById(`n${i}`);
+            if(element.textContent == "Nomination"){
+                element.textContent = `${i}. ${str}`;
+
+                if(i==1){ //The find movies box
+                    pholder = document.getElementById("placeholder");
+                    pholder.classList.add("hidden");
+                }
+
+                //Once a nomination is chosen show it
+                document.getElementById(`n${i}p`).classList.remove("hidden");
+
+                //Nomination Button
+                nominate = document.getElementById(`nominate${str}`);
+                nominate.classList.add("hidden");
+                nominated = document.getElementById(`nominated${str}`);
+                nominated.classList.remove("hidden");
+
+                if(i==5){
+                    infoAlert("Five Movies have been successfully nominated! Thank you for your time! To nominate a new movie, remove one of your earlier nominations.");
+                }
+                i=6
             }
-
-            //Once a nomination is chosen show it
-            document.getElementById(`n${i}p`).classList.remove("hidden");
-
-            //Nomination Button
-            nominate = document.getElementById(`nominate${str}`);
-            nominate.classList.add("hidden");
-            nominated = document.getElementById(`nominated${str}`);
-            nominated.classList.remove("hidden");
-
-            if(i==5){
-                infoAlert("Five Movies have been successfully nominated! Thank you for your time! To nominate a new movie, remove one of your earlier nominations.");
+            else{
+                i+=1;
             }
-            i=6
-        }
-        else{
-            if(i==5){
-                infoAlert("To nominate a new movie, remove one of your earlier nominations.");
-            }
-            i+=1;
         }
     }
 }
@@ -320,13 +326,23 @@ function unnominator2(n){ //un-nominate based on position in the un-nomination l
 
     //If element's textContent is nomination then don't do anything because there is nothing to remove.
     if(element.textContent!="Nomination"){
+
         console.log(element.textContent.substring(3));
-        nominate = document.getElementById(`nominate${element.textContent.substring(3)}`);
-        nominate.classList.remove("hidden");
-        nominated = document.getElementById(`nominated${element.textContent.substring(3)}`);
-        nominated.classList.add("hidden");
         element.textContent = 'Nomination';
         document.getElementById(`n${n}p`).classList.add("hidden");
+
+        //Hide the Nominated! button and show the Nominate button
+        nominate = document.getElementById(`nominate${element.textContent.substring(3)}`);
+        
+        if(nominate!=null){
+            nominate.classList.remove("hidden");
+        }
+
+        nominated = document.getElementById(`nominated${element.textContent.substring(3)}`);
+        
+        if(nominated!=null){
+            nominated.classList.add("hidden");
+        }
     }
 
     reorder();
@@ -356,7 +372,7 @@ function reorder(){
 
 //Save Cookies!
 function saveCookies(){
-    if(cookieEnabled){
+    if(cookieEnabled && played==true){
         createCookie(1,nominationList.length,30); //The first cookie is the number of following cookies.
         for(var i=0; i<nominationList.length;i++){
             var j=i+2;
