@@ -17,14 +17,14 @@ function welcome(){
     var title = document.getElementById("page-header");
     title.addEventListener("animationend", aniEnd, false);
 
-    console.log(getCookie(1));
     if(getCookie(1)!=null){
         console.log("Restoring session");
         // Restore a User's previous session:
         played=true;
 
-        pholder = document.getElementById("placeholder");
+        var pholder = document.getElementById("placeholder");
         pholder.classList.add("hidden");
+        console.log("Moving up more");
 
         document.getElementById("page-header").style.animation = "move-up-more 2s forwards";
         document.getElementById("welcome-details").classList.add("hidden");
@@ -113,7 +113,7 @@ function getCookie(cookiename) {
         var element = cookies[i].split("=");
         var name = element[0];
         var value = element[1];
-        console.log(element);
+
         if(name == cookiename){
             return value;
         }

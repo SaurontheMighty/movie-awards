@@ -69,7 +69,7 @@
 .page-heading{
     font-family: sans-serif;
     font-size: 200%;
-    color: #004c3f;
+    color: white;
 }
 
 @keyframes move-up {
@@ -95,14 +95,14 @@
 .centered-text{
     text-align: center;
     font-family: sans-serif;
-    color: black;
+    color: white;
 }
 
 .smaller-text{
     margin-right: 3px;
     text-align: center;
     font-family: sans-serif;
-    color: black;
+    color: white;
     font-size: 14px;
 }
 
@@ -131,7 +131,7 @@
 /* Body */
 body{
     margin: 0px;
-    background-color: #fbf7ed;
+    background-color: black;
 }
 
 main {
@@ -151,11 +151,9 @@ main {
 }
 
 .card {
-    
     border: 1px solid #e2e0e0;
     border-radius: 10px;
     padding: 15px;
-    background-color: #ffff;
     margin-bottom: 10px;
 }
 
@@ -169,7 +167,6 @@ main {
 .nomination {
     border: 1px solid gold;
     margin-bottom: 10px;
-    background-color: #FFEDD8;
     border-radius: 10px;
     padding: 5px;
     text-align: center;
@@ -179,7 +176,6 @@ main {
 .nomination_placeholder {
     border: 1px solid gold;
     margin-bottom: 10px;
-    background-color: #FFEDD8;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
@@ -187,18 +183,19 @@ main {
 }
 
 .present {
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    /* flex-direction: row; */
+    text-align: center;
     justify-content:center;
     border: 1px solid #e2e0e0;
     border-radius: 10px;
-    background-color: white;
     padding: 15px;
     margin-bottom: 10px;
 }
 
 p{
     font-family: 'Roboto';
+    color: white;
 }
 
 .w-text{
@@ -208,7 +205,7 @@ p{
 }
 
 .shopify-text{
-    color: #004c3f;
+    color: white;
     margin-right: 3vh;
     font-family: sans-serif;
     font-weight: bold;
@@ -238,7 +235,7 @@ p{
     text-decoration: none;
     text-align: center;
     font-family: 'Roboto';
-    color: #004c3f;
+    color: white;
 }
 
 .search-card{
@@ -256,6 +253,7 @@ p{
 }
 
 .search-button{
+    padding: 5px;
     margin-bottom: 10px;
     cursor: pointer;
     border-radius: 50px;
@@ -274,7 +272,7 @@ p{
 
 .giantTrophy{
     font-size: 10vh;
-    opacity: 0.6;
+    opacity: 0.75;
 }
 
 /* The Movie Card */
@@ -283,7 +281,6 @@ p{
 }
 
 .movieResult{
-    background-color: #fdfaf2;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -307,7 +304,6 @@ p{
 footer {
     padding: 1px;
     color: #002721;
-    background-color: white;
     text-align: center;
     font-family:'Roboto';
 }
