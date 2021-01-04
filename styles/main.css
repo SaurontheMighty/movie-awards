@@ -36,6 +36,10 @@
     z-index: 2;
 }
 
+.info-block {
+    line-height: 0px;
+}
+
 /* Font for Titles */
 .np{
     flex: 1;
@@ -51,8 +55,7 @@
 
 .x{
     cursor: pointer;
-    text-align: right;
-    margin-right: 20px;
+    color: black;
     opacity: 0.8;
 }
 
@@ -199,6 +202,7 @@ p{
 }
 
 .w-text{
+    color: black;
     padding-top: 10px;
     padding-left:50px;
     padding-right:50px;
@@ -278,6 +282,7 @@ p{
 /* The Movie Card */
 .poster{
     height: 150px;
+    border: 0.5px solid white;
 }
 
 .movieResult{

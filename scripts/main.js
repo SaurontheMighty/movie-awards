@@ -136,7 +136,15 @@ function infoAlert(str){
     overlay.classList.remove("hidden");
 
     popup = document.getElementById("infoAlert");
-    document.getElementById("info").textContent = str;
+
+    var block = document.getElementById("info-block");
+    for(var i=0; i<str.length;i++){
+        m1 = document.createElement("p");
+        m1.classList.add("w-text");
+        m1.textContent=str[i];
+        block.appendChild(m1);
+    }
+
     popup.classList.remove("hidden");
 }
 
@@ -185,7 +193,8 @@ function getMovie(){ //Gets all the movies containing the string from OMDb
         data.Search.forEach(element => {
             console.log(element);//for debugging
             if(element.Type=="movie"){ // Move Awards so only movies
-
+                console.log(element)
+                
                 //Creates the Results
                 result = document.createElement('article');
                 result.className = "movieResult card";
@@ -233,10 +242,10 @@ function getMovie(){ //Gets all the movies containing the string from OMDb
                 details.appendChild(nominator2);
                 result.appendChild(details);
 
-                //The poster
                 image = document.createElement('img');
                 image.className = "poster";
 
+                //The poster
                 if(element.Poster!="N/A"){ //In case a movie poster isn't available
                     image.src=element.Poster;
                 }
@@ -255,7 +264,7 @@ function nominator(str){ //adds to nomination list and makes the nominated! butt
     var i=1
 
     if(nominationList.length==5){
-        infoAlert("To nominate a new movie, remove one of your earlier nominations.");
+        infoAlert(["To nominate a new movie, remove one of your earlier nominations."]);
     }
     else{
         nominationList.push(str);
@@ -282,7 +291,7 @@ function nominator(str){ //adds to nomination list and makes the nominated! butt
                 nominated.classList.remove("hidden");
 
                 if(i==5){
-                    infoAlert("Five Movies have been successfully nominated! Thank you for your time! To nominate a new movie, remove one of your earlier nominations.");
+                    infoAlert(["Five Movies have been successfully nominated! ","Thank you for your time!","To nominate a new movie, remove one of your earlier nominations."]);
                 }
                 i=6
             }
