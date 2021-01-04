@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="styles/main.css">
     <script src="scripts/main.js"></script>
 </head>
+
 <body>
+    <!-- Header and welcome sequence -->
     <header id="page-header" class="page-header">
         <h1 id="page-heading" class="page-heading">The 1st Annual Shoppie Awards</h1>
         <section id="welcome-details" class="hidden">
@@ -23,9 +25,9 @@
         </section>
     </header>
 
-    <!-- Welcome -->
-    <section id="overlay" class="hidden"></section>
-    <section id="infoAlert" class="welcome hidden">
+    <!-- Information Alerts -->
+    <section id="overlay" class="hidden"></section> <!-- Tint the background to bring focus to the alert  -->
+    <section id="infoAlert" class="welcome hidden"> <!-- Alert -->
         <p style="font-size: x-large">🎬</p>
         <div id="info-block">
             <!-- Info messages will be programatically added here -->
@@ -78,6 +80,7 @@
                 <input onkeydown="if (event.keyCode == 13) { getMovie(); return false; }" type="text" class="search-card" placeholder="Find a Movie to Nominate" id="searchMovies"><button alt="Search Movies" class="search-button" onclick="getMovie()">&#x1F50D;</button>
             <section id="results">
                 <!-- Results -->
+                <p id="loading" class="hidden">Searching far and wide ...</p>
                 <article id="toHide" class="card toHide">
                     <p class="giantTrophy">🏆</p>
                     <p>Find a movie to nominate by searching above!</p>
@@ -85,8 +88,11 @@
             </section>
         </section>
     </main>
+
+    <!-- Footer -->
     <footer id="footer" class="hidden">
         <p>Built by Ashish for the Shopify UX & Web Developer Challenge. <a href="https://sauronthemighty.github.io/">Resume</a></p>
     </footer>
+
 </body>
 </html>

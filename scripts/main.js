@@ -138,6 +138,7 @@ function infoAlert(str){
     popup = document.getElementById("infoAlert");
 
     var block = document.getElementById("info-block");
+    block.innerHTML="";
     for(var i=0; i<str.length;i++){
         m1 = document.createElement("p");
         m1.classList.add("w-text");
@@ -173,22 +174,26 @@ function getMovie(){ //Gets all the movies containing the string from OMDb
     //Fetch from OMDb API
     fetch(`https://www.omdbapi.com/?s=${name}&apikey=b2051952`)
     .then((response)=>{
+        document.getElementById("loading").classList.remove("hidden");
         return response.json(); //Convert the response to JSON
     })
     .then((data)=>{
 
+        document.getElementById("loading").classList.add("hidden");
+
+        //This is how a result will look:
         /* <article class="movieResult card">
-                    <!-- Name -->
-                    <section>
-                        <p>Star Wars: A New Hope</p>
-                        <p class="p2">(1999)</p>
-                        <br>
-                        <br>
-                        <div id="nominate" class="nominate">&#9734; Nominate</div>
-                        <div id="nominated" class="nominated hidden">&#9733; Nominated!</div>
-                    </section>
-                    <img class="poster" src="https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg">
-                </article> */
+                <!-- Name -->
+                <section>
+                    <p>Star Wars: A New Hope</p>
+                    <p class="p2">(1999)</p>
+                    <br>
+                    <br>
+                    <div id="nominate" class="nominate">&#9734; Nominate</div>
+                    <div id="nominated" class="nominated hidden">&#9733; Nominated!</div>
+                </section>
+                <img class="poster" src="https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg">
+            </article> */
 
         data.Search.forEach(element => {
             console.log(element);//for debugging

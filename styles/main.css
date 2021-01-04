@@ -25,6 +25,7 @@
     z-index: 1;
 }
 
+/* The info alert */
 .welcome {
     background-color: white;
     position: fixed;
@@ -53,6 +54,7 @@
     justify-content: center;
 }
 
+/* Info Alert Close button */
 .x{
     cursor: pointer;
     color: black;
@@ -75,6 +77,7 @@
     color: white;
 }
 
+/* Welcome Animation Sequence */
 @keyframes move-up {
     from {
         margin-top: 22%;
@@ -109,6 +112,7 @@
     font-size: 14px;
 }
 
+/* Enable Cookies! */
 .got-it{
     padding-top: 5px;
     padding-bottom: 5px;
@@ -122,6 +126,7 @@
     border-radius: 20px;
 }
 
+/* Fade content in after welcome sequence, added programatically by main.js */
 @keyframes fadein {
     from { 
         opacity: 0; 
@@ -146,13 +151,18 @@ main {
     flex-flow: row wrap
 }
 
-/* Adjust Popup Width for Different Screen Sizes */
+/* Responsive */
 @media (max-width: 550px){
+    .left{ /* On smaller devices make Presented by Shopify come first */
+        display: flex;
+        flex-direction: column-reverse; 
+    }
     main{
         flex-direction: column;
     }
 }
 
+/* All the cards- Nominations card, Search card */
 .card {
     border: 1px solid #e2e0e0;
     border-radius: 10px;
@@ -167,6 +177,7 @@ main {
     flex: 1;
 }
 
+/* 5. Star Wars: Episode IV - A New Hope */
 .nomination {
     border: 1px solid gold;
     margin-bottom: 10px;
@@ -176,6 +187,7 @@ main {
     font-family: "Montserrat";
 }
 
+/* Your nominations will appear here */
 .nomination_placeholder {
     border: 1px solid gold;
     margin-bottom: 10px;
@@ -185,6 +197,7 @@ main {
     font-family: "Montserrat";
 }
 
+/* 'Presented by' box */
 .present {
     /* display: flex; */
     /* flex-direction: row; */
@@ -201,6 +214,7 @@ p{
     color: white;
 }
 
+/* Info Alert text */
 .w-text{
     color: black;
     padding-top: 10px;
@@ -208,6 +222,7 @@ p{
     padding-right:50px;
 }
 
+/* Presented by Shopify text */
 .shopify-text{
     color: white;
     margin-right: 3vh;
@@ -216,6 +231,7 @@ p{
     font-style: italic;
 }
 
+/* The x under the Nomination */
 .remove{
     cursor: pointer;
     opacity: 0.5;
@@ -235,6 +251,7 @@ p{
     flex: 4;
 }
 
+/* Titles like: Nominations and Find Movies */
 .title {
     text-decoration: none;
     text-align: center;
@@ -269,6 +286,7 @@ p{
     display: none !important;
 }
 
+/* Placeholder text: Find a movie to nominate by searching above! */
 .toHide {
     height: 64vh;
     text-align: center;
@@ -306,6 +324,11 @@ p{
 }
 
 /* Footer */
+
+footer a { /* Otherwise the link will become dark blue or purple and they don't go as well with black */
+    color: #30ce99;
+}
+
 footer {
     padding: 1px;
     color: #002721;
