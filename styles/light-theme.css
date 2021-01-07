@@ -1,0 +1,315 @@
+/* Typefaces */
+@font-face {
+    font-family: Oswald;
+    src: url('../typefaces/Oswald.ttf');
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('../typefaces/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('../typefaces/Montserrat-Regular.ttf');
+}
+
+/* Welcome Popup */
+#overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.welcome {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+/* Font for Titles */
+.np{
+    flex: 1;
+    font-size:20px;
+    font-family: 'Roboto';
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.x{
+    cursor: pointer;
+    text-align: right;
+    margin-right: 20px;
+    opacity: 0.8;
+}
+
+/* Header */
+#page-header{
+    margin-top: 22%;
+    text-align: center;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    animation-name: move-up;
+}
+
+.page-heading{
+    font-family: sans-serif;
+    font-size: 200%;
+    color: #004c3f;
+}
+
+@keyframes move-up {
+    from {
+        margin-top: 22%;
+    }
+
+    to {
+        margin-top: 15%;
+    }
+}
+
+@keyframes move-up-more {
+    from {
+        margin-top: 15%;
+    }
+
+    to {
+        margin-top: 2%;
+    }
+}
+
+.centered-text{
+    text-align: center;
+    font-family: sans-serif;
+    color: black;
+}
+
+.smaller-text{
+    margin-right: 3px;
+    text-align: center;
+    font-family: sans-serif;
+    color: black;
+    font-size: 14px;
+}
+
+.got-it{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    font-size: 12px;
+    background-color: white;
+    border: 1px solid #004c3f;
+    text-align: center;
+    border-radius: 20px;
+}
+
+@keyframes fadein {
+    from { 
+        opacity: 0; 
+    }
+    to   { 
+        opacity: 1; 
+    }
+}
+
+/* Body */
+body{
+    margin: 0px;
+    background-color: #fffbf4;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content:space-evenly;
+    padding: 5px;
+    flex-direction: row;
+    flex-flow: row wrap
+}
+
+/* Adjust Popup Width for Different Screen Sizes */
+@media (max-width: 550px){
+    main{
+        flex-direction: column;
+    }
+}
+
+.card {
+    
+    border: 1px solid #e2e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #ffff;
+    margin-bottom: 10px;
+}
+
+/* Left Column: Nominations and Presented By */
+.left{
+    margin-left: 5px;
+    margin-right: 10px;
+    flex: 1;
+}
+
+.nomination {
+    border: 1px solid gold;
+    margin-bottom: 10px;
+    background-color: #FFEDD8;
+    border-radius: 10px;
+    padding: 5px;
+    word-wrap: break-word;
+    text-align: center;
+    font-family: "Montserrat";
+}
+
+.nomination_placeholder {
+    border: 1px solid gold;
+    margin-bottom: 10px;
+    background-color: #FFEDD8;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-family: "Montserrat";
+}
+
+.present {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    border: 1px solid #e2e0e0;
+    border-radius: 10px;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+p{
+    font-family: 'Roboto';
+}
+
+.w-text{
+    padding-top: 10px;
+    padding-left:50px;
+    padding-right:50px;
+}
+
+.shopify-text{
+    color: #004c3f;
+    margin-right: 3vh;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.remove{
+    cursor: pointer;
+    opacity: 0.5;
+    margin-right: 9px;
+    float: right;
+}
+
+/* Small Text */
+.p2{ 
+    font-size: smaller;
+    font-family: 'Roboto';
+}
+
+/* Right Column: Search Movies */
+.right{
+    margin-right: 15px;
+    flex: 4;
+}
+
+.title {
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Roboto';
+    color: #004c3f;
+}
+
+.search-card{
+    /* height: 2.5vh; */
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    border-radius: 50px;
+    width: 92%;
+    color: #000000;
+    background: #f6f7f8;
+}
+
+.search-button{
+    padding: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 50px;
+    color: #000000;
+    background: #f6f7f8;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.toHide {
+    height: 64vh;
+    text-align: center;
+}
+
+.giantTrophy{
+    font-size: 10vh;
+    opacity: 0.6;
+}
+
+/* The Movie Card */
+.poster{
+    height: 150px;
+}
+
+.movieResult{
+    background-color: #fdfaf2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nominate {
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+    color: #4e4e4e;
+    border: 1px solid black;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* Footer */
+footer {
+    padding: 1px;
+    color: #002721;
+    background-color: white;
+    text-align: center;
+    font-family:'Roboto';
+}
