@@ -143,15 +143,7 @@ main {
     flex-flow: row wrap
 }
 
-/* Adjust Popup Width for Different Screen Sizes */
-@media (max-width: 550px){
-    main{
-        flex-direction: column;
-    }
-}
-
 .card {
-    
     border: 1px solid #e2e0e0;
     border-radius: 10px;
     padding: 15px;
@@ -188,12 +180,12 @@ main {
 }
 
 .present {
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    background-color: white;
+    text-align: center;
     justify-content:center;
     border: 1px solid #e2e0e0;
     border-radius: 10px;
-    background-color: white;
     padding: 15px;
     margin-bottom: 10px;
 }
@@ -227,6 +219,40 @@ p{
 .p2{ 
     font-size: smaller;
     font-family: 'Roboto';
+}
+
+.toggle {
+    border: 1px solid #e2e0e0;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #ffff;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.switch {
+    border: 1px solid rgb(182, 182, 182);
+    margin-top: 12px;
+    height: 22px;
+    width: 38px;
+    vertical-align: middle;
+    text-align: right;
+    background-color: rgb(209, 209, 209);
+    border-radius: 30px;
+}
+
+.switch-ball{
+    content: "";
+    height: 20px;
+    vertical-align: middle;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 20px;
+    background-color: white;
+    border-radius: 50%;
 }
 
 /* Right Column: Search Movies */
@@ -312,4 +338,16 @@ footer {
     background-color: white;
     text-align: center;
     font-family:'Roboto';
+}
+
+/* Responsive */
+@media (max-width: 550px){
+    
+    .left{ /* On smaller devices make Presented by Shopify come first */
+        display: flex;
+        flex-direction: column-reverse; 
+    }
+    main{
+        flex-direction: column;
+    }
 }

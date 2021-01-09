@@ -112,6 +112,36 @@
     font-size: 14px;
 }
 
+.toggle {
+    border: 1px solid #e2e0e0;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.switch {
+    margin-top: 12px;
+    cursor: pointer;
+    height: 24px;
+    width: 40px;
+    text-align: right;
+    background-color: rgb(0, 50, 116);
+    border-radius: 30px;
+}
+
+.switch-ball{
+    content: "";
+    margin-left: 16px;
+    height: 24px;
+    width: 24px;
+    background-color: white;
+    border-radius: 50%;
+}
+
 /* Enable Cookies! */
 .got-it{
     padding-top: 5px;

@@ -76,7 +76,6 @@ function aniEnd(event){ //When the animation is over
         main.classList.remove("hidden");
         main.style.animation = "fadein 3s forwards";
         document.getElementById("footer").classList.remove("hidden");
-
     }
 }
 
@@ -402,7 +401,6 @@ function reorder(){
 
 //Theme Switcher
 function switchTheme(){
-    
     let switchButton = document.getElementById("theme-switch");
     let theme = document.getElementById("theme");
 
@@ -411,6 +409,7 @@ function switchTheme(){
     }else{
         theme.href = "styles/light-theme.css";
     }
+    //document.documentElement.scrollTop = 0;
 }
 
 //Save Cookies!
@@ -426,3 +425,5 @@ function saveCookies(){
         }
     }
 }
+
+// Testing

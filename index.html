@@ -70,10 +70,14 @@
                 <br>
                 <img src="assets/shopify_logo.png" height="65vh" alt="Shopify Logo">
             </section>
-            <!-- <section class="card">
-                Theme Switch
-                <input type="checkbox" id="theme-switch" onclick="switchTheme()">Theme Switcher</input>
-            </section> -->
+            <section class="toggle">
+                <!-- Theme Switch -->
+                <p>Dark Theme</p>
+                <label for="theme-switch" class="switch">
+                    <input type="checkbox" id="theme-switch" class="hidden" onclick="switchTheme()" checked></input>
+                    <div class="switch-ball"></div>
+                </label>
+            </section>
         </section>
 
         <!-- Right Column -->
@@ -95,7 +99,7 @@
 
     <!-- Footer -->
     <footer id="footer" class="hidden">
-        <p>Built by Ashish for the Shopify UX & Web Developer Challenge. <a href="https://sauronthemighty.github.io/">Resume</a></p>
+        <p>Built by Ashish for the Shopify UX & Web Developer Challenge. <a href="assets/AshishSelvarajFrontendShopifyResume.pdf">Resume</a></p>
     </footer>
 
 </body>
