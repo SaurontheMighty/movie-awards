@@ -25,6 +25,7 @@
     z-index: 1;
 }
 
+/* The info alert */
 .welcome {
     background-color: white;
     position: fixed;
@@ -49,6 +50,7 @@
     justify-content: center;
 }
 
+/* Info Alert Close button */
 .x{
     cursor: pointer;
     text-align: right;
@@ -72,6 +74,7 @@
     color: #004c3f;
 }
 
+/* Welcome Animation Sequence */
 @keyframes move-up {
     from {
         margin-top: 22%;
@@ -119,6 +122,7 @@
     border-radius: 20px;
 }
 
+/* Fade content in after welcome sequence, added programatically by main.js */
 @keyframes fadein {
     from { 
         opacity: 0; 
@@ -143,6 +147,7 @@ main {
     flex-flow: row wrap
 }
 
+/* All the cards- Nominations card, Search card */
 .card {
     border: 1px solid #e2e0e0;
     border-radius: 10px;
@@ -169,6 +174,7 @@ main {
     font-family: "Montserrat";
 }
 
+/* Your nominations will appear here */
 .nomination_placeholder {
     border: 1px solid gold;
     margin-bottom: 10px;
@@ -193,13 +199,14 @@ main {
 p{
     font-family: 'Roboto';
 }
-
+/* Info Alert text */
 .w-text{
     padding-top: 10px;
     padding-left:50px;
     padding-right:50px;
 }
 
+/* Presented by Shopify text */
 .shopify-text{
     color: #004c3f;
     margin-right: 3vh;
@@ -207,7 +214,7 @@ p{
     font-weight: bold;
     font-style: italic;
 }
-
+/* The x under the Nomination */
 .remove{
     cursor: pointer;
     opacity: 0.5;
@@ -221,6 +228,7 @@ p{
     font-family: 'Roboto';
 }
 
+/* Toggle Switch for Theme */
 .toggle {
     border: 1px solid #e2e0e0;
     border-radius: 10px;
@@ -233,6 +241,7 @@ p{
     justify-content: space-between;
 }
 
+/* The background of the switch (Label) */
 .switch {
     border: 1px solid rgb(182, 182, 182);
     margin-top: 12px;
@@ -244,6 +253,7 @@ p{
     border-radius: 30px;
 }
 
+/* The White Ball */
 .switch-ball{
     content: "";
     height: 20px;
@@ -261,6 +271,7 @@ p{
     flex: 4;
 }
 
+/* Titles like: Nominations and Find Movies */
 .title {
     text-decoration: none;
     text-align: center;
@@ -283,7 +294,6 @@ p{
 }
 
 .search-button{
-    padding: 5px;
     margin-bottom: 10px;
     cursor: pointer;
     border-radius: 50px;

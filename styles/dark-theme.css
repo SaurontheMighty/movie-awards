@@ -112,6 +112,7 @@
     font-size: 14px;
 }
 
+/* The Toggle Switch for the Theme */
 .toggle {
     border: 1px solid #e2e0e0;
     border-radius: 10px;
@@ -123,6 +124,7 @@
     justify-content: space-between;
 }
 
+/* The background of the switch (Label) */
 .switch {
     margin-top: 12px;
     cursor: pointer;
@@ -133,6 +135,7 @@
     border-radius: 30px;
 }
 
+/* The White Ball */
 .switch-ball{
     content: "";
     margin-left: 16px;
@@ -345,7 +348,7 @@ p{
 /* Footer */
 
 footer a { /* Otherwise the link will become dark blue or purple and they don't go as well with black */
-    color: #30ce99;
+    color: rgb(240, 204, 0);
 }
 
 footer {

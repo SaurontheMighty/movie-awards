@@ -409,7 +409,7 @@ function switchTheme(){
     }else{
         theme.href = "styles/light-theme.css";
     }
-    //document.documentElement.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
 
 //Save Cookies!
